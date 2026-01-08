@@ -1,0 +1,10 @@
+#class tools::wcsv::ntuple
+#title Particle Energy Data
+#separator 44
+#vector_separator 59
+#column int EventID
+#column int TrackID
+#column int Edep
+#column double PosX
+#column double PosY
+#column double PosZ
