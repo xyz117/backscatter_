@@ -59,7 +59,7 @@ RunAction::RunAction()
   analysisManager->CreateNtuple("Energy", "Particle Energy Data");
   analysisManager->CreateNtupleIColumn("EventID");
   analysisManager->CreateNtupleIColumn("TrackID");
-  analysisManager->CreateNtupleIColumn("Edep");
+  analysisManager->CreateNtupleDColumn("Edep");
   analysisManager->CreateNtupleDColumn("PosX");
   analysisManager->CreateNtupleDColumn("PosY");
   analysisManager->CreateNtupleDColumn("PosZ");

@@ -57,19 +57,25 @@ void EventAction::EndOfEventAction(const G4Event* event)
 
     // 获取 HitsCollection (你需要知道它的 CollectionID)
     // 假设你在 Initialize 中获取了 fHCID (Hits Collection ID)
-  auto sdManager = G4SDManager::GetSDMpointer();
+  
         
         // 注意：这里的字符串必须是 "SD名称/Collection名称"
         // 例如：你在 DetectorConstruction 中定义的 SD 名字是 "TrackerSD"
         // 且在 TrackerSD.cc 中定义的 Collection 名字是 "TrackerHits"
-  fHCID = sdManager->GetCollectionID("DetSD/TrackerHitsCollection");
+  if (fHCID <0)
+  {
+    auto sdManager = G4SDManager::GetSDMpointer();
+    fHCID = sdManager->GetCollectionID("DetSD/TrackerHitsCollection");
+  }
+  
   auto hce = event->GetHCofThisEvent();
-  auto hitsCollection = static_cast<TrackerHitsCollection*>(hce->GetHC(fHCID));
-
-  if (!hitsCollection) return;
-
-    // 获取当前的 Event ID
-  G4int eventID = event->GetEventID();
+  if(!hce)
+    return;
+  auto hc=hce->GetHC(fHCID);
+  if(!hc)
+    return;
+  auto hitsCollection = static_cast<TrackerHitsCollection *>(hc);
+  G4int eventID = event->GetEventID();// 获取当前的 Event ID
 
     // 遍历这个 Event 中的所有 Hits
   int n_hit = hitsCollection->entries();
