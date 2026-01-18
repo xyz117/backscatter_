@@ -41,9 +41,13 @@ G4bool TrackerSD::ProcessHits(G4Step* step, G4TouchableHistory*)
   if (edep == 0.) return false;
 
   auto newHit = new TrackerHit();
+  const G4VTouchable* touchable = step->GetPreStepPoint()->GetTouchable();
+  G4int z_id=touchable->GetReplicaNumber(0);
+  G4int y_id=touchable->GetReplicaNumber(1);
+  G4int uniqueID=y_id*2+z_id;
 
   newHit->SetTrackID(step->GetTrack()->GetTrackID());
-  newHit->SetChamberNb(step->GetPreStepPoint()->GetTouchableHandle()->GetCopyNumber());
+  newHit->SetChamberNb(uniqueID);
   newHit->SetEdep(edep);
   newHit->SetPos(step->GetPostStepPoint()->GetPosition());
 

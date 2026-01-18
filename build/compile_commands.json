@@ -1,0 +1,62 @@
+[
+{
+  "directory": "D:/program/cpp/geant4/backscatter_/build",
+  "command": "D:\\Program_Files\\mingw64\\bin\\g++.exe -DG4LIB_BUILD_DLL -DG4UI_USE_QT -DG4UI_USE_WIN32 -DG4VIS_USE_OPENGLQT -DG4VIS_USE_OPENGLWIN32 -DG4VIS_USE_QT3D -DG4VIS_USE_TOOLSSG_QT_GLES -DG4VIS_USE_TOOLSSG_QT_ZB -DG4VIS_USE_TOOLSSG_WINDOWS_GLES -DG4VIS_USE_TOOLSSG_WINDOWS_ZB -DPTL_BUILD_DLL -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NO_DEBUG -DQT_WIDGETS_LIB @CMakeFiles/exampleB1.dir/includes_CXX.rsp -O3 -DNDEBUG -o CMakeFiles\\exampleB1.dir\\exampleB1.cc.obj -c D:\\program\\cpp\\geant4\\backscatter_\\exampleB1.cc",
+  "file": "D:/program/cpp/geant4/backscatter_/exampleB1.cc",
+  "output": "CMakeFiles/exampleB1.dir/exampleB1.cc.obj"
+},
+{
+  "directory": "D:/program/cpp/geant4/backscatter_/build",
+  "command": "D:\\Program_Files\\mingw64\\bin\\g++.exe -DG4LIB_BUILD_DLL -DG4UI_USE_QT -DG4UI_USE_WIN32 -DG4VIS_USE_OPENGLQT -DG4VIS_USE_OPENGLWIN32 -DG4VIS_USE_QT3D -DG4VIS_USE_TOOLSSG_QT_GLES -DG4VIS_USE_TOOLSSG_QT_ZB -DG4VIS_USE_TOOLSSG_WINDOWS_GLES -DG4VIS_USE_TOOLSSG_WINDOWS_ZB -DPTL_BUILD_DLL -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NO_DEBUG -DQT_WIDGETS_LIB @CMakeFiles/exampleB1.dir/includes_CXX.rsp -O3 -DNDEBUG -o CMakeFiles\\exampleB1.dir\\src\\ActionInitialization.cc.obj -c D:\\program\\cpp\\geant4\\backscatter_\\src\\ActionInitialization.cc",
+  "file": "D:/program/cpp/geant4/backscatter_/src/ActionInitialization.cc",
+  "output": "CMakeFiles/exampleB1.dir/src/ActionInitialization.cc.obj"
+},
+{
+  "directory": "D:/program/cpp/geant4/backscatter_/build",
+  "command": "D:\\Program_Files\\mingw64\\bin\\g++.exe -DG4LIB_BUILD_DLL -DG4UI_USE_QT -DG4UI_USE_WIN32 -DG4VIS_USE_OPENGLQT -DG4VIS_USE_OPENGLWIN32 -DG4VIS_USE_QT3D -DG4VIS_USE_TOOLSSG_QT_GLES -DG4VIS_USE_TOOLSSG_QT_ZB -DG4VIS_USE_TOOLSSG_WINDOWS_GLES -DG4VIS_USE_TOOLSSG_WINDOWS_ZB -DPTL_BUILD_DLL -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NO_DEBUG -DQT_WIDGETS_LIB @CMakeFiles/exampleB1.dir/includes_CXX.rsp -O3 -DNDEBUG -o CMakeFiles\\exampleB1.dir\\src\\DetectorConstruction.cc.obj -c D:\\program\\cpp\\geant4\\backscatter_\\src\\DetectorConstruction.cc",
+  "file": "D:/program/cpp/geant4/backscatter_/src/DetectorConstruction.cc",
+  "output": "CMakeFiles/exampleB1.dir/src/DetectorConstruction.cc.obj"
+},
+{
+  "directory": "D:/program/cpp/geant4/backscatter_/build",
+  "command": "D:\\Program_Files\\mingw64\\bin\\g++.exe -DG4LIB_BUILD_DLL -DG4UI_USE_QT -DG4UI_USE_WIN32 -DG4VIS_USE_OPENGLQT -DG4VIS_USE_OPENGLWIN32 -DG4VIS_USE_QT3D -DG4VIS_USE_TOOLSSG_QT_GLES -DG4VIS_USE_TOOLSSG_QT_ZB -DG4VIS_USE_TOOLSSG_WINDOWS_GLES -DG4VIS_USE_TOOLSSG_WINDOWS_ZB -DPTL_BUILD_DLL -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NO_DEBUG -DQT_WIDGETS_LIB @CMakeFiles/exampleB1.dir/includes_CXX.rsp -O3 -DNDEBUG -o CMakeFiles\\exampleB1.dir\\src\\DetectorMessenger.cc.obj -c D:\\program\\cpp\\geant4\\backscatter_\\src\\DetectorMessenger.cc",
+  "file": "D:/program/cpp/geant4/backscatter_/src/DetectorMessenger.cc",
+  "output": "CMakeFiles/exampleB1.dir/src/DetectorMessenger.cc.obj"
+},
+{
+  "directory": "D:/program/cpp/geant4/backscatter_/build",
+  "command": "D:\\Program_Files\\mingw64\\bin\\g++.exe -DG4LIB_BUILD_DLL -DG4UI_USE_QT -DG4UI_USE_WIN32 -DG4VIS_USE_OPENGLQT -DG4VIS_USE_OPENGLWIN32 -DG4VIS_USE_QT3D -DG4VIS_USE_TOOLSSG_QT_GLES -DG4VIS_USE_TOOLSSG_QT_ZB -DG4VIS_USE_TOOLSSG_WINDOWS_GLES -DG4VIS_USE_TOOLSSG_WINDOWS_ZB -DPTL_BUILD_DLL -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NO_DEBUG -DQT_WIDGETS_LIB @CMakeFiles/exampleB1.dir/includes_CXX.rsp -O3 -DNDEBUG -o CMakeFiles\\exampleB1.dir\\src\\EventAction.cc.obj -c D:\\program\\cpp\\geant4\\backscatter_\\src\\EventAction.cc",
+  "file": "D:/program/cpp/geant4/backscatter_/src/EventAction.cc",
+  "output": "CMakeFiles/exampleB1.dir/src/EventAction.cc.obj"
+},
+{
+  "directory": "D:/program/cpp/geant4/backscatter_/build",
+  "command": "D:\\Program_Files\\mingw64\\bin\\g++.exe -DG4LIB_BUILD_DLL -DG4UI_USE_QT -DG4UI_USE_WIN32 -DG4VIS_USE_OPENGLQT -DG4VIS_USE_OPENGLWIN32 -DG4VIS_USE_QT3D -DG4VIS_USE_TOOLSSG_QT_GLES -DG4VIS_USE_TOOLSSG_QT_ZB -DG4VIS_USE_TOOLSSG_WINDOWS_GLES -DG4VIS_USE_TOOLSSG_WINDOWS_ZB -DPTL_BUILD_DLL -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NO_DEBUG -DQT_WIDGETS_LIB @CMakeFiles/exampleB1.dir/includes_CXX.rsp -O3 -DNDEBUG -o CMakeFiles\\exampleB1.dir\\src\\PrimaryGeneratorAction.cc.obj -c D:\\program\\cpp\\geant4\\backscatter_\\src\\PrimaryGeneratorAction.cc",
+  "file": "D:/program/cpp/geant4/backscatter_/src/PrimaryGeneratorAction.cc",
+  "output": "CMakeFiles/exampleB1.dir/src/PrimaryGeneratorAction.cc.obj"
+},
+{
+  "directory": "D:/program/cpp/geant4/backscatter_/build",
+  "command": "D:\\Program_Files\\mingw64\\bin\\g++.exe -DG4LIB_BUILD_DLL -DG4UI_USE_QT -DG4UI_USE_WIN32 -DG4VIS_USE_OPENGLQT -DG4VIS_USE_OPENGLWIN32 -DG4VIS_USE_QT3D -DG4VIS_USE_TOOLSSG_QT_GLES -DG4VIS_USE_TOOLSSG_QT_ZB -DG4VIS_USE_TOOLSSG_WINDOWS_GLES -DG4VIS_USE_TOOLSSG_WINDOWS_ZB -DPTL_BUILD_DLL -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NO_DEBUG -DQT_WIDGETS_LIB @CMakeFiles/exampleB1.dir/includes_CXX.rsp -O3 -DNDEBUG -o CMakeFiles\\exampleB1.dir\\src\\RunAction.cc.obj -c D:\\program\\cpp\\geant4\\backscatter_\\src\\RunAction.cc",
+  "file": "D:/program/cpp/geant4/backscatter_/src/RunAction.cc",
+  "output": "CMakeFiles/exampleB1.dir/src/RunAction.cc.obj"
+},
+{
+  "directory": "D:/program/cpp/geant4/backscatter_/build",
+  "command": "D:\\Program_Files\\mingw64\\bin\\g++.exe -DG4LIB_BUILD_DLL -DG4UI_USE_QT -DG4UI_USE_WIN32 -DG4VIS_USE_OPENGLQT -DG4VIS_USE_OPENGLWIN32 -DG4VIS_USE_QT3D -DG4VIS_USE_TOOLSSG_QT_GLES -DG4VIS_USE_TOOLSSG_QT_ZB -DG4VIS_USE_TOOLSSG_WINDOWS_GLES -DG4VIS_USE_TOOLSSG_WINDOWS_ZB -DPTL_BUILD_DLL -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NO_DEBUG -DQT_WIDGETS_LIB @CMakeFiles/exampleB1.dir/includes_CXX.rsp -O3 -DNDEBUG -o CMakeFiles\\exampleB1.dir\\src\\SteppingAction.cc.obj -c D:\\program\\cpp\\geant4\\backscatter_\\src\\SteppingAction.cc",
+  "file": "D:/program/cpp/geant4/backscatter_/src/SteppingAction.cc",
+  "output": "CMakeFiles/exampleB1.dir/src/SteppingAction.cc.obj"
+},
+{
+  "directory": "D:/program/cpp/geant4/backscatter_/build",
+  "command": "D:\\Program_Files\\mingw64\\bin\\g++.exe -DG4LIB_BUILD_DLL -DG4UI_USE_QT -DG4UI_USE_WIN32 -DG4VIS_USE_OPENGLQT -DG4VIS_USE_OPENGLWIN32 -DG4VIS_USE_QT3D -DG4VIS_USE_TOOLSSG_QT_GLES -DG4VIS_USE_TOOLSSG_QT_ZB -DG4VIS_USE_TOOLSSG_WINDOWS_GLES -DG4VIS_USE_TOOLSSG_WINDOWS_ZB -DPTL_BUILD_DLL -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NO_DEBUG -DQT_WIDGETS_LIB @CMakeFiles/exampleB1.dir/includes_CXX.rsp -O3 -DNDEBUG -o CMakeFiles\\exampleB1.dir\\src\\TrackerHit.cc.obj -c D:\\program\\cpp\\geant4\\backscatter_\\src\\TrackerHit.cc",
+  "file": "D:/program/cpp/geant4/backscatter_/src/TrackerHit.cc",
+  "output": "CMakeFiles/exampleB1.dir/src/TrackerHit.cc.obj"
+},
+{
+  "directory": "D:/program/cpp/geant4/backscatter_/build",
+  "command": "D:\\Program_Files\\mingw64\\bin\\g++.exe -DG4LIB_BUILD_DLL -DG4UI_USE_QT -DG4UI_USE_WIN32 -DG4VIS_USE_OPENGLQT -DG4VIS_USE_OPENGLWIN32 -DG4VIS_USE_QT3D -DG4VIS_USE_TOOLSSG_QT_GLES -DG4VIS_USE_TOOLSSG_QT_ZB -DG4VIS_USE_TOOLSSG_WINDOWS_GLES -DG4VIS_USE_TOOLSSG_WINDOWS_ZB -DPTL_BUILD_DLL -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NO_DEBUG -DQT_WIDGETS_LIB @CMakeFiles/exampleB1.dir/includes_CXX.rsp -O3 -DNDEBUG -o CMakeFiles\\exampleB1.dir\\src\\TrackerSD.cc.obj -c D:\\program\\cpp\\geant4\\backscatter_\\src\\TrackerSD.cc",
+  "file": "D:/program/cpp/geant4/backscatter_/src/TrackerSD.cc",
+  "output": "CMakeFiles/exampleB1.dir/src/TrackerSD.cc.obj"
+}
+]

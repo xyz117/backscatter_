@@ -26,7 +26,7 @@
 //
 /// \file B1/src/DetectorConstruction.cc
 /// \brief Implementation of the B1::DetectorConstruction class
-
+#include "G4PVReplica.hh"
 #include "DetectorConstruction.hh"
 #include "G4RunManager.hh"
 #include "G4Box.hh"
@@ -117,8 +117,14 @@ G4VPhysicalVolume* DetectorConstruction::DefineVolumes()
   auto solid_det = new G4Box("Detector", 10*cm,8*cm,8*cm);
   auto DetLV = new G4LogicalVolume(solid_det, air, "Detector");
   new G4PVPlacement(nullptr,pos_det,DetLV,"Detector",logicEnv,false,0,checkOverlaps);
-
- // 塑料
+  
+  auto solid_row= new G4Box("row", 10*cm,4*cm,8*cm);
+  auto logic_row = new G4LogicalVolume(solid_row, air, "Row_LV");
+  new G4PVReplica("Row_PV",logic_row,DetLV,kYAxis,2,8*cm);
+  auto solid_cell=new G4Box("cell",10*cm,4*cm,4*cm);
+  fLogicCell=new G4LogicalVolume(solid_cell, fDETMaterial,"Cell_LV");
+  new G4PVReplica("Cell_PV",fLogicCell,logic_row,kZAxis,2,8*cm);
+  // 塑料
   G4ThreeVector pos_OBJ1 = G4ThreeVector(Axisx*cm+0.5*Thickness*cm, 0* cm, 0*cm);//塑料位置
 
   auto solid_OBJ1 = new G4Box("Shape2",0.5*Thickness*cm,60*cm,30*cm);//塑料尺寸
@@ -142,34 +148,34 @@ G4VPhysicalVolume* DetectorConstruction::DefineVolumes()
   G4VisAttributes OBJ2VisAtt(G4Colour::Blue());
 
   logicWorld->SetVisAttributes(worldVisAtt);
-  DetLV->SetVisAttributes(worldVisAtt);
+  // DetLV->SetVisAttributes(worldVisAtt);
+  fLogicCell->SetVisAttributes(detVisAtt);
   fLogicOBJ1->SetVisAttributes(OBJ1VisAtt);
-
-  // G4double DetXLength = 10*cm;
-  // G4double DetYZLength = 4*cm;
-  // G4double DetZpos = -12*cm;
-  G4double Yposition[4] = {4*cm,4*cm,-4*cm,-4*cm};
-  G4double Zposition[4] = {4*cm,-4*cm,4*cm,-4*cm};
-  for (G4int copyNo = 0; copyNo < fNbOfDets;copyNo++)
-  {
-    // G4double Yposition = -(copyNo / 2) * DetYZLength+DetYZLength/2;
-    // G4double Zposition = (copyNo % 2) * DetYZLength + DetZpos;
-    auto DetS=new G4Box("Det_solid", 10*cm,4*cm,4*cm);
-    fLogicDET[copyNo] = new G4LogicalVolume(DetS,fDETMaterial,"Det_LV");
-    fLogicDET[copyNo]->SetVisAttributes(detVisAtt);
-    new G4PVPlacement(nullptr, G4ThreeVector(0 * cm, Yposition[copyNo], Zposition[copyNo]), fLogicDET[copyNo], "Det_PV", DetLV, false, copyNo, checkOverlaps);
-  }
 
     return physWorld;
 }
 void DetectorConstruction::ConstructSDandField()
 {
   G4String DetSDname = "/DetSD";
-  auto DetSD = new TrackerSD(DetSDname, "TrackerHitsCollection");
-  G4SDManager::GetSDMpointer()->AddNewDetector(DetSD);
+  auto sdManager = G4SDManager::GetSDMpointer();
+
+  // 1. 尝试从 SDManager 中查找是否已经有名为 DetSDname 的探测器
+  // 第二个参数 false 表示如果没找到不要打印警告（因为第一次运行时肯定找不到）
+  auto DetSD = static_cast<TrackerSD*>(sdManager->FindSensitiveDetector(DetSDname, false));
+
+  // 2. 如果没找到（说明是第一次运行），则创建并注册
+  if (!DetSD) 
+  {
+      DetSD = new TrackerSD(DetSDname, "TrackerHitsCollection");
+      sdManager->AddNewDetector(DetSD);
+  }
   // Setting trackerSD to all logical volumes with the same name
   // of "Chamber_LV".
-  SetSensitiveDetector("Detector", DetSD, true);
+  if(fLogicCell)
+  {
+    SetSensitiveDetector(fLogicCell, DetSD);
+  }
+    
 
   // Create global magnetic field messenger.
   // Uniform magnetic field is then created automatically if

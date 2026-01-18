@@ -89,7 +89,7 @@ void EventAction::EndOfEventAction(const G4Event* event)
       analysisManager->FillNtupleDColumn(3, hit->fPos.x());  // PosX
       analysisManager->FillNtupleDColumn(4, hit->fPos.y());  // PosY
       analysisManager->FillNtupleDColumn(5, hit->fPos.z());  // PosZ
-
+      analysisManager->FillNtupleIColumn(6, hit->fChamberNb);  // DetectorID
         // 增加一行 (完成当前 Hit 的写入)
       analysisManager->AddNtupleRow();
     }
