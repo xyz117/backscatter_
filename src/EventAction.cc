@@ -83,6 +83,7 @@ void EventAction::EndOfEventAction(const G4Event* event)
       TrackerHit* hit = (*hitsCollection)[i];
 
         // 填入数据 (注意顺序要和 RunAction 中的 CreateNtuple 一致)
+        /* code */
       analysisManager->FillNtupleIColumn(0, eventID);        // EventID
       analysisManager->FillNtupleIColumn(1, hit->fTrackID);  // TrackID
       analysisManager->FillNtupleDColumn(2, hit->fEdep);     // Edep
@@ -90,6 +91,9 @@ void EventAction::EndOfEventAction(const G4Event* event)
       analysisManager->FillNtupleDColumn(4, hit->fPos.y());  // PosY
       analysisManager->FillNtupleDColumn(5, hit->fPos.z());  // PosZ
       analysisManager->FillNtupleIColumn(6, hit->fChamberNb);  // DetectorID
+      analysisManager->FillNtupleSColumn(7, hit->fParticleName);
+    
+      
         // 增加一行 (完成当前 Hit 的写入)
       analysisManager->AddNtupleRow();
     }

@@ -58,29 +58,9 @@ void SteppingAction::UserSteppingAction(const G4Step* step)
       G4RunManager::GetRunManager()->GetUserDetectorConstruction());
     fScoringVolume = detConstruction->GetScoringVolume();
   }
-  auto analysisManager = G4AnalysisManager::Instance();
   // get volume of the current step
   G4LogicalVolume* volume =
     step->GetPreStepPoint()->GetTouchableHandle()->GetVolume()->GetLogicalVolume();
-  G4int eventID = G4RunManager::GetRunManager()->GetCurrentEvent()->GetEventID();
-  G4Track *track = step->GetTrack();
-  G4double kineticenergy = track->GetKineticEnergy()*MeV*1000;
-  G4double pos_x = track->GetPosition().x();
-  G4double pos_y = track->GetPosition().y();
-  G4double pos_z = track->GetPosition().z();
-
-  G4int trackID = track->GetTrackID();
-  G4String particalName = track->GetDefinition()->GetParticleName();
-  G4String volumeName = volume->GetName();
-  if (particalName == "gamma" && volumeName=="Detector")
-  {
-    analysisManager->FillNtupleIColumn(0, eventID);
-    analysisManager->FillNtupleIColumn(1, trackID);
-    analysisManager->FillNtupleSColumn(2, particalName);
-    analysisManager->FillNtupleDColumn(3, kineticenergy);
-    analysisManager->FillNtupleSColumn(4, volumeName);
-    analysisManager->AddNtupleRow();
-}
   
   // check if we are in scoring volume
   if (volume != fScoringVolume) return;

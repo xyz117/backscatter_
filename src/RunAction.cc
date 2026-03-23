@@ -64,6 +64,7 @@ RunAction::RunAction()
   analysisManager->CreateNtupleDColumn("PosY");
   analysisManager->CreateNtupleDColumn("PosZ");
   analysisManager->CreateNtupleIColumn("DetectorID");
+  analysisManager->CreateNtupleSColumn("ParticleName");
   analysisManager->FinishNtuple();
 
   // G4int RunID = G4RunManager::GetRunManager()->GetCurrentRun()->GetRunID();

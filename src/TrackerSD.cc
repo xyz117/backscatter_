@@ -5,7 +5,7 @@
 #include "G4Step.hh"
 #include "G4ThreeVector.hh"
 #include "G4ios.hh"
-
+#include "G4ParticleDefinition.hh"
 namespace B1
 {
 
@@ -50,7 +50,7 @@ G4bool TrackerSD::ProcessHits(G4Step* step, G4TouchableHistory*)
   newHit->SetChamberNb(uniqueID);
   newHit->SetEdep(edep);
   newHit->SetPos(step->GetPostStepPoint()->GetPosition());
-
+  newHit->SetParticleName(step->GetTrack()->GetDefinition()->GetParticleName());
   fHitsCollection->insert(newHit);
 
   // newHit->Print();

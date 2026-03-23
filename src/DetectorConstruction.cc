@@ -114,16 +114,16 @@ G4VPhysicalVolume* DetectorConstruction::DefineVolumes()
   // G4ThreeVector pos_det = G4ThreeVector(40 * cm, 42*cm, -44 * cm);
   // (2,-12) (22,-28) (42,-44)
   // 8 dets z:{+-28 +-64} y:{+-22 }
-  auto solid_det = new G4Box("Detector", 10*cm,8*cm,8*cm);
-  auto DetLV = new G4LogicalVolume(solid_det, air, "Detector");
+  auto solid_det = new G4Box("Detector", 10*cm,16*cm,16*cm);
+  auto DetLV = new G4LogicalVolume(solid_det, fDETMaterial, "Detector");
   new G4PVPlacement(nullptr,pos_det,DetLV,"Detector",logicEnv,false,0,checkOverlaps);
   
-  auto solid_row= new G4Box("row", 10*cm,4*cm,8*cm);
-  auto logic_row = new G4LogicalVolume(solid_row, air, "Row_LV");
-  new G4PVReplica("Row_PV",logic_row,DetLV,kYAxis,2,8*cm);
+  auto solid_row= new G4Box("row", 10*cm,4*cm,16*cm);
+  auto logic_row = new G4LogicalVolume(solid_row, fDETMaterial, "Row_LV");
+  new G4PVReplica("Row_PV",logic_row,DetLV,kYAxis,4,16*cm);
   auto solid_cell=new G4Box("cell",10*cm,4*cm,4*cm);
   fLogicCell=new G4LogicalVolume(solid_cell, fDETMaterial,"Cell_LV");
-  new G4PVReplica("Cell_PV",fLogicCell,logic_row,kZAxis,2,8*cm);
+  new G4PVReplica("Cell_PV",fLogicCell,logic_row,kZAxis,4,16*cm);
   // 塑料
   G4ThreeVector pos_OBJ1 = G4ThreeVector(Axisx*cm+0.5*Thickness*cm, 0* cm, 0*cm);//塑料位置
 
@@ -240,17 +240,26 @@ void DetectorConstruction::DefineMaterials()
 	LYSO->AddElement(Ce, 0.156*perCent);
 
   fDETMaterial = LYSO;
-
+  G4Element *ele_Lead=nist->FindOrBuildElement("Pb");
   G4Element *ele_Fe = nist->FindOrBuildElement("Fe");
   G4Element *ele_C = nist->FindOrBuildElement("C");
+  G4Element *ele_Al = nist->FindOrBuildElement("Al");
+  G4Element *ele_Cu = nist->FindOrBuildElement("Cu");
 
   G4Material* Iron=new G4Material("Iron",density= 7.85 * g / cm3,ncomponents=2);
   Iron->AddElement(ele_Fe, fracmass=99.5*perCent);
   Iron->AddElement(ele_C,fracmass=0.5*perCent);
+  G4Material* Aluminum=new G4Material("Aluminum",density= 2.7 * g / cm3,ncomponents=1);
+  Aluminum->AddElement(ele_Al, fracmass=100*perCent);
+  G4Material* Lead=new G4Material("Lead",density= 11.34 * g / cm3,ncomponents=1);
+  Lead->AddElement(ele_Lead, fracmass=100*perCent);
+  G4Material* PE = nist->FindOrBuildMaterial("G4_PLASTIC_SC_VINYLTOLUENE");
+  G4Material* Copper = new G4Material("Copper",density= 8.96 * g / cm3,ncomponents=1);
+  Copper->AddElement(ele_Cu, fracmass=100*perCent);
 
   fOBJ1Material = Iron;
 
-  fOBJ2Material=nist->FindOrBuildMaterial("G4_PLASTIC_SC_VINYLTOLUENE");
+  fOBJ2Material=PE;
 }
 void DetectorConstruction::setThickness(G4float value)
 {
